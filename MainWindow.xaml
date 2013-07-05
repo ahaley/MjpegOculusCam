@@ -1,0 +1,25 @@
+﻿<Window x:Class="CLEyeMulticamWPFTest.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CLEyeMulticam"
+    Title="OculusCam" Height="800" Width="1280" Background="Black" ResizeMode="NoResize">
+    <Grid KeyDown="Grid_KeyDown" Width="1280">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*" />
+            <ColumnDefinition Width="1525*" />
+        </Grid.ColumnDefinitions>
+        <ListBox Name="output" Height="56" Margin="0,705,752,0" VerticalAlignment="Top" IsTextSearchEnabled="False" IsHitTestVisible="False" Background="{x:Null}" Grid.ColumnSpan="2" Foreground="White" BorderBrush="{x:Null}" />
+        <local:CLEyeCameraImage x:Name="camLeft" Margin="0,146,640,135" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Framerate="30" ColorMode="CLEYE_COLOR_PROCESSED" Resolution="CLEYE_VGA" Stretch="Fill" Grid.ColumnSpan="2" Width="Auto" Height="Auto" DataContext="{Binding}" />
+        <local:CLEyeCameraImage x:Name="camRight" Margin="587,146,26,135" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Framerate="30" ColorMode="CLEYE_COLOR_PROCESSED" Resolution="CLEYE_VGA" Stretch="Fill" Grid.Column="1" />
+        <Slider HorizontalAlignment="Left" Margin="90,8,0,0" Name="slider1" Width="186" Maximum="500" Minimum="0" ValueChanged="slider1_ValueChanged" Grid.Column="1" Height="33" VerticalAlignment="Top" />
+        <Label Content="Distortion1" Height="45" HorizontalAlignment="Left" Margin="12,0,0,0" Name="label1" VerticalAlignment="Top" Foreground="White" FontSize="18" Width="95" Grid.ColumnSpan="2" />
+        <Label Content="0" FontSize="18" Foreground="#E64FBE53" Height="45" HorizontalAlignment="Right" Margin="0,0,851,0" Name="lbldist1" VerticalAlignment="Top" Width="117" Grid.Column="1" />
+        <Slider Grid.Column="1" Height="33" HorizontalAlignment="Right" Margin="0,8,563,0" Maximum="500" Minimum="0" Name="slider2" VerticalAlignment="Top" Width="186" ValueChanged="slider2_ValueChanged" />
+        <Label Content="Distortion2" FontSize="18" Foreground="White" Height="45" HorizontalAlignment="Left" Margin="398,0,0,0" Name="label2" VerticalAlignment="Top" Width="103" Grid.Column="1" />
+        <Label Content="0" FontSize="18" Foreground="#E64FBE53" Grid.Column="1" Height="45" HorizontalAlignment="Right" Margin="0,0,437,0" Name="lbldist2" VerticalAlignment="Top" Width="117" />
+        <Slider Grid.Column="1" Height="33" HorizontalAlignment="Right" Margin="0,8,152,0" Maximum="500" Minimum="0" Name="slider3" VerticalAlignment="Top" Width="186" ValueChanged="slider3_ValueChanged" />
+        <Label Content="Distortion3" FontSize="18" Foreground="White" Height="45" Margin="808,0,0,0" Name="label4" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="103" />
+        <Label Content="0" FontSize="18" Foreground="#E64FBE53" Grid.Column="1" Height="45" HorizontalAlignment="Right" Margin="0,0,26,0" Name="lbldist3" VerticalAlignment="Top" Width="117" />
+        <Label Content="Left cam: W,A,S,D          Left size: Q,E          Right cam: T,F,G,H          Right size: Z,R" FontSize="18" Foreground="White" Height="42" HorizontalAlignment="Left" Margin="537,718,0,0" Name="label3" VerticalAlignment="Top" Width="740" Grid.Column="1" />
+    </Grid>
+</Window>
