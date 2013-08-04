@@ -9,8 +9,8 @@
             <ColumnDefinition Width="1525*" />
         </Grid.ColumnDefinitions>
         <ListBox Name="output" Height="56" Margin="0,705,752,0" VerticalAlignment="Top" IsTextSearchEnabled="False" IsHitTestVisible="False" Background="{x:Null}" Grid.ColumnSpan="2" Foreground="White" BorderBrush="{x:Null}" />
-        <local:MjpegCameraImage x:Name="camLeft" Margin="0,146,640,135" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" Grid.ColumnSpan="2" Width="Auto" Height="Auto" DataContext="{Binding}" />
-        <local:MjpegCameraImage x:Name="camRight" Margin="587,146,26,135" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" Grid.Column="1" />
+        <local:MjpegCameraImage x:Name="camLeft" Margin="0,130,640,130" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" Grid.ColumnSpan="2" Width="Auto" Height="Auto" DataContext="{Binding}" />
+        <local:MjpegCameraImage x:Name="camRight" Margin="587,130,26,130" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" Grid.Column="1" />
         <Slider HorizontalAlignment="Left" Margin="90,8,0,0" Name="slider1" Width="186" Maximum="500" Minimum="0" ValueChanged="slider1_ValueChanged" Grid.Column="1" Height="33" VerticalAlignment="Top" />
         <Label Content="Distortion1" Height="45" HorizontalAlignment="Left" Margin="12,0,0,0" Name="label1" VerticalAlignment="Top" Foreground="White" FontSize="18" Width="95" Grid.ColumnSpan="2" />
         <Label Content="0" FontSize="18" Foreground="#E64FBE53" Height="45" HorizontalAlignment="Right" Margin="0,0,851,0" Name="lbldist1" VerticalAlignment="Top" Width="117" Grid.Column="1" />

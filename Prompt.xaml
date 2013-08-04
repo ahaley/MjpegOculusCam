@@ -1,0 +1,25 @@
+﻿<Window x:Class="CLEyeMulticamWPFTest.Prompt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Prompt" Height="461" Width="427">
+    <Grid>
+        <GroupBox Header="MJPEG Camera" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="200" Width="399" Grid.ColumnSpan="2">
+            <Grid HorizontalAlignment="Left" Height="177.04" VerticalAlignment="Top" Width="387">
+                <TextBox x:Name="leftAddressTextBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" Text="http://192.168.1.12:8080/?action=stream" VerticalAlignment="Top" Width="367"/>
+                <Label Content="Left Address" HorizontalAlignment="Left" Margin="10,15.04,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.715,1.427"/>
+                <TextBox x:Name="rightAddressTextBox" HorizontalAlignment="Left" Height="23" Margin="10,99.96,0,0" TextWrapping="Wrap" Text="http://192.168.1.12:8080/?action=stream" VerticalAlignment="Top" Width="367"/>
+                <Label Content="Right Address" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.715,1.427"/>
+                <Button x:Name="mjpegConnectButton" Content="Connect" HorizontalAlignment="Left" Margin="297,145.08,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.738,0.727" Click="mjpegConnectButton_Click"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="USB Camera" HorizontalAlignment="Left" Margin="10,220,0,-23" VerticalAlignment="Top" Height="200" Width="399" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Grid HorizontalAlignment="Left" Height="177.04" VerticalAlignment="Top" Width="387">
+                <ComboBox x:Name="leftUSBDeviceComboBox" HorizontalAlignment="Left" Margin="10,45.04,0,0" VerticalAlignment="Top" Width="137"/>
+                <Label Content="Left USB Device" HorizontalAlignment="Left" Margin="10,19.08,0,0" VerticalAlignment="Top" Width="96.993"/>
+                <ComboBox x:Name="rightUSBDeviceComboBox_Copy" HorizontalAlignment="Left" Margin="10,99.04,0,0" VerticalAlignment="Top" Width="137"/>
+                <Label Content="Right USB Device" HorizontalAlignment="Left" Margin="10,73.08,0,0" VerticalAlignment="Top" Width="119.993"/>
+                <Button x:Name="usbCameraConnectButton" Content="Connect" HorizontalAlignment="Left" Margin="297,145.08,0,0" VerticalAlignment="Top" Width="80"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

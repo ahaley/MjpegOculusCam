@@ -37,7 +37,8 @@ namespace CLEyeMulticamWPFTest
     /// </summary>
     public partial class MjpegMainWindow : Window
     {
-        MjpegDecoder mjpegDecoder;
+        MjpegDecoder mjpegDecoderRight;
+        MjpegDecoder mjpegDecoderLeft;
 
         public MjpegMainWindow()
         {
@@ -50,6 +51,9 @@ namespace CLEyeMulticamWPFTest
             slider2.Value = 0;
             slider3.Value = 0; 
         }
+
+        public string LeftAddress { get; set; }
+        public string RightAddress { get; set; }
 
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
@@ -105,15 +109,37 @@ namespace CLEyeMulticamWPFTest
 
         void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            mjpegDecoder.StopStream();
+            mjpegDecoderLeft.StopStream();
+            if (RightAddress != LeftAddress) {
+                mjpegDecoderRight.StopStream();
+            }
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            mjpegDecoder = new MjpegDecoder();
-            camLeft.SetDecoder(mjpegDecoder);
-            camRight.SetDecoder(mjpegDecoder);
-            mjpegDecoder.ParseStream(new Uri("http://192.168.1.12:8080/?action=stream"));
+            mjpegDecoderLeft = new MjpegDecoder();
+            camLeft.SetDecoder(mjpegDecoderLeft);
+
+            if (RightAddress == LeftAddress) {
+                camRight.SetDecoder(mjpegDecoderLeft);
+            }
+            else {
+                mjpegDecoderRight = new MjpegDecoder();
+                camRight.SetDecoder(mjpegDecoderRight);
+            }
+
+            const string defaultAddress = "http://192.168.1.12:8080/?action=stream";
+
+            Func<string, Uri> uriOrDefault = s => new Uri(s == null ? defaultAddress : s);
+
+            mjpegDecoderLeft.ParseStream(uriOrDefault(LeftAddress));
+
+            if (RightAddress != LeftAddress) {
+                mjpegDecoderRight.ParseStream(uriOrDefault(RightAddress));
+            }
+        
+            //mjpegDecoderLeft.ParseStream(new Uri("http://192.168.1.14/videostream.cgi?user=ahaley&pwd=password123&resolution=64"));
+            //mjpegDecoderRight.ParseStream(new Uri("http://192.168.1.12:8080/?action=stream"));
         }
 
         int curdist = 0; 
